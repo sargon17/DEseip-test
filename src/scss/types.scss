@@ -1,0 +1,89 @@
+h1 {
+  font: {
+    size: 4rem;
+    weight: 700;
+  }
+}
+
+h2 {
+  font: {
+    size: 3rem;
+    weight: 600;
+  }
+}
+
+h3 {
+  font: {
+    size: 2rem;
+    weight: 600;
+  }
+}
+
+h4 {
+  font: {
+    size: 4rem;
+    weight: 400;
+  }
+}
+
+h5 {
+  font: {
+    size: 3rem;
+    weight: 400;
+  }
+}
+
+h6 {
+  font: {
+    size: 2rem;
+    weight: 400;
+  }
+}
+
+.subtitle {
+  &1 {
+    font: {
+      size: 2rem;
+      weight: 400;
+    }
+  }
+  &2 {
+    font: {
+      size: 2rem;
+      weight: 800;
+    }
+  }
+}
+
+.body {
+  &1 {
+    font: {
+      size: 2rem;
+      weight: 400;
+    }
+  }
+  &2 {
+    font: {
+      size: 1.8rem;
+      weight: 400;
+    }
+  }
+  &3 {
+    font: {
+      size: 1.5rem;
+      weight: 400;
+    }
+  }
+  &4 {
+    font: {
+      size: 1rem;
+      weight: 400;
+    }
+  }
+}
+.accent {
+  font: {
+    size: 8rem;
+    weight: 700;
+  }
+}
