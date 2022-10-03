@@ -16,6 +16,8 @@ function App() {
       <p className="body3">Hello World</p>
       <p className="body4">Hello World</p>
       <p className="accent">Hello World</p>
+      <button className="btn btn--primary">calcola</button>
+      <button className="btn btn--secondary">parla con noi</button>
     </div>
   );
 }
