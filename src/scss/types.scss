@@ -1,39 +1,57 @@
-h1 {
+h1,
+.h1,
+h1 > *,
+.h1 > * {
   font: {
     size: 4rem;
     weight: 700;
   }
 }
 
-h2 {
+h2,
+.h2,
+h2 > *,
+.h2 > * {
   font: {
     size: 3rem;
     weight: 600;
   }
 }
 
-h3 {
+h3,
+.h3,
+h3 > *,
+.h3 > * {
   font: {
     size: 2rem;
     weight: 600;
   }
 }
 
-h4 {
+h4,
+.h4,
+h4 > *,
+.h4 > * {
   font: {
     size: 4rem;
     weight: 400;
   }
 }
 
-h5 {
+h5,
+.h5,
+h5 > *,
+.h5 > * {
   font: {
     size: 3rem;
     weight: 400;
   }
 }
 
-h6 {
+h6,
+.h6,
+h6 > *,
+.h6 > * {
   font: {
     size: 2rem;
     weight: 400;
@@ -82,8 +100,16 @@ h6 {
   }
 }
 .accent {
-  font: {
-    size: 8rem;
-    weight: 700;
+  &1 {
+    font: {
+      size: 8rem;
+      weight: 400;
+    }
+  }
+  &2 {
+    font: {
+      size: 8rem;
+      weight: 800;
+    }
   }
 }
