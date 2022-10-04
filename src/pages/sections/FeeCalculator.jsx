@@ -9,23 +9,21 @@ export default function FeeCalculator() {
         <div className="container mx-auto py-24">
           <h2 className="h2 text-center">Calcola la tua fee</h2>
           <div className="py-20">
-            <ul className="flex flex-row items-baseline gap-16">
-              <li className="w-1/3 text-center flex gap-4">
+            <ul className="flex flex-row items-center gap-16">
+              <li className="w-1/3 text-center flex items-center gap-4">
                 <img src={Coin1} alt="counter 1" className="mx-auto mb-8" />
                 <p className="subtitle1">
                   Inserisci l’ammontare del tuo patrimonio in criptovalute
                 </p>
               </li>
-              <li className="w-1/3 text-center flex gap-4">
+              <li className="w-1/3 text-center flex items-center gap-4">
                 <img src={Coin2} alt="counter 2" className="mx-auto mb-8" />
-                <p className="subtitle1">
-                  Inserisci l’ammontare del tuo patrimonio in criptovalute
-                </p>
+                <p className="subtitle1">Scopri la tua fee mensile</p>
               </li>
-              <li className="w-1/3 text-center flex gap-4">
-                <img src={Coin2} alt="counter 2" className="mx-auto mb-8" />
+              <li className="w-1/3 text-center flex items-center gap-4">
+                <img src={Coin3} alt="counter 3" className="mx-auto mb-8" />
                 <p className="subtitle1">
-                  Inserisci l’ammontare del tuo patrimonio in criptovalute
+                  Apri il conto e godi di tutti i vantaggi
                 </p>
               </li>
             </ul>
