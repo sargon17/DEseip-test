@@ -1,0 +1,10 @@
+@import "../../variables";
+
+.jumbotron {
+  width: 100%;
+  background-color: $bg_3;
+
+  .accent-title {
+    color: $font_2;
+  }
+}
