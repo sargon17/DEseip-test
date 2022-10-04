@@ -1,0 +1,40 @@
+@import "./../../variables";
+
+.fee-calculator {
+  background-color: $bg_2;
+
+  .calculator {
+    color: $font_2;
+    background-color: $bg_s_1;
+    border-radius: 51px;
+    border: 3px solid $bg_s_2;
+    width: 903px;
+    .title {
+      color: $font_2;
+      text-align: center;
+      margin-top: 50px;
+      text-transform: uppercase;
+    }
+
+    input {
+      margin-top: 26px;
+      background-color: $bg_1;
+      border: none;
+      border-radius: 10px;
+      color: $bg_s_1;
+      font-size: 1.5rem;
+      padding: 10px 10px;
+      margin-bottom: 20px;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $bg_s_1;
+      }
+    }
+    .details-link {
+      text-decoration: underline;
+      font-size: 1.5rem;
+    }
+  }
+}
