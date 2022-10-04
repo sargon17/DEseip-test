@@ -1,8 +1,19 @@
 @import "variables";
 @import "types";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 // Components
 @import "./components/button";
+
+// Pages
+// Sections
+@import "./pages/sections/jumbotron";
+@import "./pages/sections/description";
+@import "./pages/sections/feeCalculator";
+@import "./pages/sections/Services";
 
 * {
   margin: 0;
@@ -13,6 +24,6 @@
 }
 
 body {
-  background-color: $bg_s_1;
+  background-color: $bg_1;
   color: $font_1;
 }
