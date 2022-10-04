@@ -1,9 +1,11 @@
+import Home from "./pages/Home";
+
 import "./scss/app.scss";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      {/* <h1>Hello World</h1>
       <h2>Hello World</h2>
       <h3>Hello World</h3>
       <h4>Hello World</h4>
@@ -17,7 +19,8 @@ function App() {
       <p className="body4">Hello World</p>
       <p className="accent">Hello World</p>
       <button className="btn btn--primary">calcola</button>
-      <button className="btn btn--secondary">parla con noi</button>
+      <button className="btn btn--secondary">parla con noi</button> */}
+      <Home />
     </div>
   );
 }
