@@ -1,0 +1,44 @@
+@import "./../../variables";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 18px 90px;
+  width: 100%;
+  background-color: $bg_1;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+
+  img {
+    transition: all 0.3s ease-in-out;
+  }
+
+  &--scrolled {
+    background-color: adjust-color($color: $bg_1, $alpha: -0.2);
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+
+    img {
+      width: 80px;
+    }
+  }
+}
+
+.footer {
+  background: $bg_s_2;
+  color: $font_2;
+
+  .footer-nav {
+    background: $accent_1;
+    padding: 20px 0;
+
+    a {
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: $accent_2;
+        text-decoration: underline;
+      }
+    }
+  }
+}
