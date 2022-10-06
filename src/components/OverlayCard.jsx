@@ -1,13 +1,19 @@
 import useOnclickOutside from "react-cool-onclickoutside";
 
-export default function overlayCard({ close, children, variant }) {
+export default function overlayCard({ close, children, variant, cardClass }) {
   // on click outside of the table te table will close
   const card = useOnclickOutside(() => {
     close();
   });
   return (
     <div className="overlay">
-      <div className="card" ref={card}>
+      <div
+        // className="card"
+        className={`card ${cardClass} ${
+          variant === "clear" ? "card-clear" : ""
+        }`}
+        ref={card}
+      >
         <button className="close-btn" onClick={close}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
