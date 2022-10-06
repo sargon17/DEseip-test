@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+// import TableOverlay from "./OverlayCard";
+import OverlayCard from "./OverlayCard";
+
 import Coin1 from "../../assets/coin_1.png";
 import Coin2 from "../../assets/coin_2.png";
 import Coin3 from "../../assets/coin_3.png";
@@ -7,6 +10,12 @@ import Coin3 from "../../assets/coin_3.png";
 export default function FeeCalculator() {
   const [fee, setFee] = useState(0);
   const [amount, setAmount] = useState("");
+  const [isAmountValid, setIsAmountValid] = useState(true);
+
+  const [isTableOpen, setIsTableOpen] = useState(false);
+
+  const [isMinAmountOpen, setIsMinAmountOpen] = useState(false);
+
   let euroEURFormat = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency: "EUR",
@@ -35,6 +44,22 @@ export default function FeeCalculator() {
     },
   ];
 
+  const inputValidation = (e) => {
+    const re = /[0-9]*[^A-z]/;
+    if (e.target.value === "" || re.test(e.target.value)) {
+      let val = re.exec(e.target.value);
+      if (val) {
+        setAmount(val[0]);
+      } else {
+        setAmount("");
+      }
+      setIsAmountValid(true);
+    } else {
+      // console.log(e.target.value);
+      setIsAmountValid(false);
+    }
+  };
+
   const calcFee = (total) => {
     // check for minimum amount of import
     if (total < 15000) {
@@ -58,11 +83,9 @@ export default function FeeCalculator() {
       }
     }
     let monthlyFee = yearlyFee / 12;
-    // console.log(monthlyFee);
+
     setFee(monthlyFee);
   };
-
-  // calcFee(499999);
 
   return (
     <>
@@ -91,20 +114,27 @@ export default function FeeCalculator() {
           </div>
           <div className="calculator mx-auto p-12 text-center">
             <h6 className="h6 title">Inserisci gli asset che vuoi custodire</h6>
-            <input
-              type="text"
-              placeholder="Asset"
-              value={amount}
-              onChange={(e) => {
-                let val = e.target.value;
-                setAmount(val);
-              }}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  calcFee(amount);
-                }
-              }}
-            />
+            <div className="input-block">
+              <input
+                type="text"
+                placeholder="Asset"
+                value={amount}
+                onChange={(e) => {
+                  inputValidation(e);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    calcFee(amount);
+                  }
+                }}
+              />
+              {!isAmountValid && (
+                <p className="error-message">
+                  {" "}
+                  Il valore deve essere un numero valido
+                </p>
+              )}
+            </div>
             <button
               className="btn btn--primary mx-auto"
               onClick={() => {
@@ -124,7 +154,8 @@ export default function FeeCalculator() {
               href=""
               onClick={(e) => {
                 e.preventDefault();
-                alert("Coming soon");
+                // alert("Coming soon");
+                setIsTableOpen(true);
               }}
             >
               Dettagli del calcolo
@@ -144,6 +175,70 @@ export default function FeeCalculator() {
           </div>
         </div>
       </div>
+      {isTableOpen && (
+        <OverlayCard
+          close={() => {
+            setIsTableOpen(false);
+          }}
+        >
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th className="body2">Da €</th>
+                <th className="body2">A €</th>
+                <th className="body2 text-center">
+                  Commissioni annuali (IVA inclusa) <br />
+                  <span className="body4 leading-none m-0">
+                    Le commissioni mensili (IVA inclusa) sono 1/12 di quelle
+                    annuali
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="body2">Primi 500,000</td>
+                <td className="body2 text-center">15,000</td>
+                <td className="body2 text-center">500,000</td>
+                <td className="body2 text-center">0,70%</td>
+              </tr>
+              <tr>
+                <td className="body2">Primi 500,000</td>
+                <td className="body2 text-center">500,000</td>
+                <td className="body2 text-center">1,000,000</td>
+                <td className="body2 text-center">0,60%</td>
+              </tr>
+              <tr>
+                <td className="body2">Primi 500,000</td>
+                <td className="body2 text-center">1,000,000</td>
+                <td className="body2 text-center">5,000,000</td>
+                <td className="body2 text-center">0,50%</td>
+              </tr>
+              <tr>
+                <td className="body2">Primi 500,000</td>
+                <td className="body2 text-center">5,000,000</td>
+                <td className="body2 text-center">10,000,000</td>
+                <td className="body2 text-center">0,40%</td>
+              </tr>
+              <tr>
+                <td className="body2">Primi 500,000</td>
+                <td className="body2 text-center">10,000,000</td>
+                <td className="body2 text-center">Moon</td>
+                <td className="body2 text-center">0,30%</td>
+              </tr>
+            </tbody>
+          </table>
+        </OverlayCard>
+      )}
+      {isMinAmountOpen && (
+        <OverlayCard close={() => setIsMinAmountOpen(false)}>
+          <p className="body2">
+            Ci dispiace, al momento il nostro servizio è disponibile solo a
+            partire da €15.000
+          </p>
+        </OverlayCard>
+      )}
     </>
   );
 }
