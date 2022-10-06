@@ -41,5 +41,19 @@
         transform: scale(0.9);
       }
     }
+    &-clear {
+      background-color: $bg_1;
+      color: $font_1;
+
+      .close-btn {
+        &:hover {
+          background-color: adjust-color($color: $bg_s_2, $alpha: -0.9);
+        }
+        &:active {
+          background-color: adjust-color($color: $bg_s_2, $alpha: -0.8);
+          transform: scale(0.9);
+        }
+      }
+    }
   }
 }
