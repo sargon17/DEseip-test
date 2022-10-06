@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-// import TableOverlay from "./OverlayCard";
-import OverlayCard from "./OverlayCard";
+// Components
+import OverlayCard from "../../components/OverlayCard";
 
 import Coin1 from "../../assets/coin_1.png";
 import Coin2 from "../../assets/coin_2.png";
@@ -10,17 +10,23 @@ import Coin3 from "../../assets/coin_3.png";
 export default function FeeCalculator() {
   const [fee, setFee] = useState(0);
   const [amount, setAmount] = useState("");
+
+  // state of error message
   const [isAmountValid, setIsAmountValid] = useState(true);
 
+  // state of table overlay
   const [isTableOpen, setIsTableOpen] = useState(false);
 
+  // state of minimum amount overlay
   const [isMinAmountOpen, setIsMinAmountOpen] = useState(false);
 
+  // formatting the amount to euro
   let euroEURFormat = new Intl.NumberFormat("de-DE", {
     style: "currency",
     currency: "EUR",
   });
 
+  // fees list
   const fees = [
     {
       val: 500000,
@@ -44,26 +50,12 @@ export default function FeeCalculator() {
     },
   ];
 
-  const inputValidation = (e) => {
-    const re = /[0-9]*[^A-z]/;
-    if (e.target.value === "" || re.test(e.target.value)) {
-      let val = re.exec(e.target.value);
-      if (val) {
-        setAmount(val[0]);
-      } else {
-        setAmount("");
-      }
-      setIsAmountValid(true);
-    } else {
-      // console.log(e.target.value);
-      setIsAmountValid(false);
-    }
-  };
-
+  // function to calculate the fee
   const calcFee = (total) => {
     // check for minimum amount of import
     if (total < 15000) {
-      return null;
+      setIsMinAmountOpen(true);
+      return;
     }
 
     let yearlyFee = 0;
@@ -85,6 +77,23 @@ export default function FeeCalculator() {
     let monthlyFee = yearlyFee / 12;
 
     setFee(monthlyFee);
+  };
+
+  // utility function to check if the input is a number
+  const inputValidation = (e) => {
+    const re = /[0-9]*[^A-z]/;
+    if (e.target.value === "" || re.test(e.target.value)) {
+      let val = re.exec(e.target.value);
+      if (val) {
+        setAmount(val[0]);
+      } else {
+        setAmount("");
+      }
+      setIsAmountValid(true);
+    } else {
+      // console.log(e.target.value);
+      setIsAmountValid(false);
+    }
   };
 
   return (
@@ -232,8 +241,12 @@ export default function FeeCalculator() {
         </OverlayCard>
       )}
       {isMinAmountOpen && (
-        <OverlayCard close={() => setIsMinAmountOpen(false)}>
-          <p className="body2">
+        <OverlayCard
+          close={() => setIsMinAmountOpen(false)}
+          cardClass="w-1/4"
+          variant="clear"
+        >
+          <p className="body2 text-center mx-auto">
             Ci dispiace, al momento il nostro servizio è disponibile solo a
             partire da €15.000
           </p>
