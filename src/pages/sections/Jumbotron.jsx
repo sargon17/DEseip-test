@@ -4,13 +4,13 @@ export default function Jumbotron() {
   return (
     <>
       <div className="jumbotron">
-        <div className="container mx-auto flex flex-row py-24">
-          <div className=" w-full sm:w-2/3 md:w-8/12 flex flex-col justify-between">
-            <h1 className="h1">
+        <div className="container mx-auto flex flex-row flex-wrap-reverse sm:flex-nowrap items-center py-24">
+          <div className=" w-full px-6 md:px-0 sm:w-2/3 md:w-8/12 flex flex-col justify-between">
+            <h1 className="h1 leading-none sm:leading-normal my-8">
               Quanto costa custodire le tue cripto?{" "}
               <span className="accent-title">Scoprilo con Acme Corp.</span>
             </h1>
-            <p className="subtitle1 leading-loose">
+            <p className="subtitle1 sm:leading-loose my-8">
               Quando il tuo patrimonio cripto inizia a crescere, custodirlo in
               modo sicuro è fondamentale per evitare di incorrere in truffe e
               rischi.
@@ -38,7 +38,7 @@ export default function Jumbotron() {
               </svg>
             </button>
           </div>
-          <div className="w-full h-full sm:w-1/3 md:w-4/12 flex justify-center items-center">
+          <div className="w-2/3 h-full mx-auto sm:w-1/3 md:w-4/12 flex justify-center items-center jumbo-img">
             <img src={HeroImg} alt="Acme Corp" className="w-full mx-auto" />
           </div>
         </div>

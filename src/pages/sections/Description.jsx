@@ -12,8 +12,8 @@ export default function Description() {
             Cosa rende sicura e affidabile la custodia di Acme Corp:
           </h2>
           <div className="py-20">
-            <ul className="flex flex-row items-baseline gap-16">
-              <li className="w-1/4 text-center block">
+            <ul className="flex flex-row items-baseline flex-wrap justify-center">
+              <li className=" sm:w-full md:w-2/4 xl:w-1/4 mt-12 xl:mt-0 text-center block px-4">
                 <img
                   src={Protocol}
                   alt="image of a shield"
@@ -26,7 +26,7 @@ export default function Description() {
                   indipendenti coinvolte
                 </p>
               </li>
-              <li className="w-1/4 text-center block">
+              <li className="sm:w-full md:w-2/4 xl:w-1/4 mt-12 xl:mt-0 text-center block px-4">
                 <img
                   src={Gestore}
                   alt="vector of a person"
@@ -38,7 +38,7 @@ export default function Description() {
                   via email, chat, telefono e di persona
                 </p>
               </li>
-              <li className="w-1/4 text-center block">
+              <li className="sm:w-full md:w-2/4  xl:w-1/4 mt-12 xl:mt-0 text-center block px-4">
                 <img
                   src={Oiz}
                   alt="image of a shields"
@@ -50,7 +50,7 @@ export default function Description() {
                   attestazioni di livello
                 </p>
               </li>
-              <li className="w-1/4 text-center block">
+              <li className="sm:w-full md:w-2/4  xl:w-1/4 mt-12 xl:mt-0 text-center block px-4">
                 <img
                   src={assicuration}
                   alt="vector of a safe"

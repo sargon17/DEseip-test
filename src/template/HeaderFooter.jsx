@@ -33,9 +33,9 @@ export default function HeaderFooter({ children }) {
           </div>
         </div>
         <div className="footer-nav">
-          <nav className="flex justify-center gap-16">
+          <nav className="px-4 flex justify-start md:justify-center gap-16 flex-wrap">
             <p className="body2">2022 Acme Corp Inc. - P.IVA 01234567890 </p>
-            <ul className="flex flex-row justify-center gap-16">
+            <ul className="flex flex-col md:flex-row flex-wrap justify-start gap-16">
               <li>
                 <a href="" className="body2">
                   PRIVACY POLICY
