@@ -17,10 +17,12 @@
     }
     .input-block {
       width: fit-content;
+
       max-width: 100%;
       margin: 0 auto;
       margin-bottom: 20px;
       input {
+        width: 100%;
         margin-top: 26px;
         background-color: $bg_1;
         border: none;
@@ -64,8 +66,21 @@ table {
   th,
   td {
     border: 1px solid $bg_1;
-    padding: 18px;
     width: 25%;
     line-height: 1;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    th,
+    td,
+    .body2.body2 {
+      padding: 4px;
+      font-size: 0.8rem;
+
+      .body4.body4 {
+        display: none;
+      }
+    }
   }
 }
